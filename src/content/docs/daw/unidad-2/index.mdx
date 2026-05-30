@@ -1,0 +1,377 @@
+---
+title: Unidad 2 
+description: Servicios de red implicados en el despliegue de una aplicación web
+---
+
+import { Card, LinkButton } from "@astrojs/starlight/components"
+
+<Card title="Resumen de la Unidad 2" icon="bars">
+<LinkButton href="unidad-2/resumen" icon="right-arrow">Resumen</LinkButton>
+</Card>
+
+## Objetivo de la unidad
+
+Esta unidad explica los servicios de red que intervienen cuando una aplicación web se despliega y se pone en funcionamiento. El foco principal está en dos servicios: **DNS**, encargado de relacionar nombres de dominio con direcciones IP, y **LDAP**, utilizado para centralizar la gestión de usuarios, grupos, permisos y autenticación.
+
+:::note[Resultado de aprendizaje]
+El resultado asociado a la unidad es verificar la ejecución de aplicaciones web comprobando los parámetros de configuración de servicios de red.
+:::
+
+---
+
+## 1. Servicio DNS
+
+El **DNS** (*Domain Name System*) es el sistema que permite utilizar nombres de dominio en lugar de direcciones IP. Gracias a DNS, un usuario puede escribir una dirección como `www.ejemplo.com` en el navegador, sin tener que recordar la IP real del servidor donde se aloja la aplicación.
+
+DNS funciona como una **base de datos distribuida y jerárquica**, repartida entre muchos servidores de nombres. Estos servidores almacenan información sobre dominios, subdominios, servidores web, servidores de correo y otros servicios de red.
+
+:::tip[Idea clave]
+DNS actúa como una “agenda” de Internet: traduce nombres fáciles de recordar en direcciones IP que las máquinas pueden usar para comunicarse.
+:::
+
+### 1.1 Funcionamiento general de DNS
+
+Cuando un usuario introduce un dominio en el navegador, el sistema intenta resolverlo para obtener su dirección IP. El proceso suele seguir estos pasos:
+
+1. El usuario escribe un dominio, por ejemplo `www.ejemplo.com`.
+2. El equipo comprueba si ya tiene la IP guardada en su caché DNS.
+3. Si no la tiene, consulta a un **resolver DNS**, normalmente proporcionado por el ISP.
+4. El resolver pregunta a servidores raíz, servidores TLD y servidores autoritativos hasta encontrar la IP correcta.
+5. Una vez obtenida la IP, el navegador se conecta al servidor web correspondiente.
+6. El servidor devuelve la página solicitada al navegador.
+
+DNS trabaja principalmente sobre el **puerto 53**, usando **UDP** para la mayoría de consultas y **TCP** en casos concretos, como transferencias de zona o respuestas grandes.
+
+---
+
+## 2. Espacio de nombres de dominio
+
+El espacio de nombres DNS tiene forma de **árbol jerárquico**. En la parte superior se encuentra la raíz, representada por un punto (`.`), y debajo aparecen los distintos niveles del dominio.
+
+Ejemplo:
+
+```txt
+www.google.com.
+│   │      │
+│   │      └── Dominio de primer nivel o TLD: .com
+│   └───────── Dominio de segundo nivel: google
+└───────────── Host o servicio: www
+```
+
+### 2.1 Jerarquía DNS
+
+La jerarquía DNS permite repartir la administración de los dominios:
+
+- La **raíz** se representa con un punto (`.`).
+- Los **TLD** son dominios de primer nivel, como `.com`, `.org`, `.net`, `.es` o `.edu`.
+- Los dominios de segundo nivel suelen pertenecer a empresas, instituciones o particulares.
+- Cada organización puede crear subdominios propios.
+- El último nivel suele identificar un equipo o servicio concreto, como `www`, `mail` o `ftp`.
+
+:::note[FQDN]
+Un **FQDN** (*Fully Qualified Domain Name*) es un nombre de dominio completamente cualificado. Incluye todos los niveles necesarios para identificar un host de forma única, por ejemplo: `mail.yahoo.com` o `www.google.es`.
+:::
+
+---
+
+## 3. Tipos de servidores DNS
+
+Un servidor DNS puede desempeñar distintos roles. Incluso un mismo servidor puede ser primario para una zona y secundario para otra.
+
+### Servidor primario o master
+
+El **servidor primario** contiene la copia principal de la zona DNS. En él se realizan las modificaciones, altas o cambios de registros.
+
+Características principales:
+
+- Tiene autoridad sobre la zona que gestiona.
+- Contiene la base de datos principal de la zona.
+- Permite añadir, modificar o eliminar registros.
+- Puede reenviar consultas externas a otros servidores DNS.
+
+### Servidor secundario o slave
+
+El **servidor secundario** mantiene una copia de solo lectura de la zona DNS, obtenida desde el servidor primario mediante una **transferencia de zona**.
+
+Su función principal es mejorar la disponibilidad y repartir la carga de consultas.
+
+### Servidor reenviador o forwarder
+
+El **reenviador** recibe consultas DNS de la red local y las envía a otros servidores DNS externos. Es útil para centralizar las consultas y reducir tráfico, ya que almacena respuestas en caché.
+
+### Servidor caché
+
+El **servidor caché** no contiene zonas propias. Su objetivo es guardar temporalmente respuestas DNS ya resueltas para acelerar futuras consultas.
+
+:::tip[Para estudiar]
+La diferencia importante es que un servidor autoritativo tiene información oficial de una zona, mientras que un servidor caché solo guarda respuestas temporales.
+:::
+
+---
+
+## 4. Zonas DNS
+
+Una **zona DNS** es una parte del espacio de nombres DNS gestionada por uno o varios servidores DNS. Contiene registros de recursos relacionados con un dominio o subdominios.
+
+No debe confundirse una zona con un dominio. Una zona puede incluir varios subdominios, o un subdominio puede delegarse en una zona independiente.
+
+Por ejemplo, una organización puede gestionar `empresa.com`, `soporte.empresa.com` y `comunidad.empresa.com` dentro de una misma zona, pero separar `blog.empresa.com` en otra zona si necesita una administración independiente.
+
+### 4.1 Transferencia de zona
+
+La **transferencia de zona** es el proceso por el cual un servidor secundario obtiene una copia de la información almacenada en el servidor primario.
+
+Aspectos importantes:
+
+- La inicia el servidor secundario.
+- El primario debe autorizar la transferencia.
+- Sirve para mantener sincronizados los servidores DNS.
+- Se realiza entre servidores autoritativos.
+
+### 4.2 Archivo de zona
+
+La información de una zona puede almacenarse en un archivo de texto plano llamado **archivo de zona**. Este archivo contiene los registros DNS y suele empezar con un registro **SOA**, que indica la autoridad principal de la zona.
+
+---
+
+## 5. Consultas DNS
+
+Una consulta DNS es una petición realizada por un cliente o servidor para obtener información sobre un dominio.
+
+Un servidor DNS puede responder de varias formas:
+
+- Desde su **caché**, si ya conoce la respuesta.
+- Desde una **zona propia**, si tiene autoridad sobre ese dominio.
+- Consultando a otros servidores DNS, si no conoce la respuesta.
+
+### 5.1 Consultas recursivas
+
+En una consulta **recursiva**, el cliente espera una respuesta definitiva. El servidor debe devolver la IP solicitada o indicar que no se ha encontrado.
+
+### 5.2 Consultas iterativas
+
+En una consulta **iterativa**, el servidor responde con la información que conoce. Si no tiene la respuesta final, puede devolver una referencia a otro servidor que esté más cerca de resolver la consulta.
+
+:::note[Diferencia rápida]
+En la consulta recursiva se pide una respuesta final. En la iterativa se puede recibir una pista o referencia para continuar buscando.
+:::
+
+### 5.3 Delegación y reenvío
+
+La **delegación** permite que una zona principal indique qué servidor tiene autoridad sobre una zona inferior. Por ejemplo, la zona raíz delega en `.com`, y `.com` puede delegar en `empresa.com`.
+
+El **reenvío** se usa cuando un servidor DNS envía consultas que no puede resolver a otro servidor DNS externo.
+
+### 5.4 Resolvers DNS
+
+Un **resolver** es el componente del sistema operativo que recibe las peticiones de las aplicaciones y realiza consultas DNS. También puede guardar respuestas en caché para acelerar futuras resoluciones.
+
+Existen dos tipos de resolución:
+
+- **Resolución directa**: obtener una IP a partir de un nombre de dominio.
+- **Resolución inversa**: obtener un nombre de dominio a partir de una IP, usando registros PTR.
+
+---
+
+## 6. Base de datos DNS y registros de recursos
+
+La base de datos DNS está formada por archivos de zona que contienen **registros de recursos** o **RR**. Cada registro define un dato concreto sobre un dominio, un host o un servicio.
+
+### Registros DNS más importantes
+
+| Registro | Función principal |
+|---|---|
+| `SOA` | Indica el inicio de autoridad de una zona y datos de sincronización. |
+| `NS` | Define los servidores de nombres responsables de una zona. |
+| `A` | Asocia un nombre de dominio con una dirección IPv4. |
+| `AAAA` | Asocia un nombre de dominio con una dirección IPv6. |
+| `CNAME` | Crea un alias que apunta a otro nombre verdadero. |
+| `MX` | Indica los servidores de correo de un dominio. |
+| `TXT` | Guarda texto arbitrario, usado por ejemplo para SPF, verificaciones o antispam. |
+| `PTR` | Se usa en resolución inversa para asociar una IP con un nombre. |
+| `SRV` | Indica información de servicios concretos, como protocolo, puerto y servidor. |
+
+:::caution[Importante]
+Los registros `NS`, `MX` y `SRV` suelen necesitar que el servidor al que apuntan tenga previamente un registro `A` o `AAAA` definido.
+:::
+
+---
+
+## 7. DNS en el despliegue de una aplicación web
+
+Para desplegar una aplicación web con un dominio propio, normalmente se sigue este flujo:
+
+1. Comprar o registrar un dominio, por ejemplo `midominio.com`.
+2. Configurar los nameservers del proveedor DNS.
+3. Crear los registros necesarios:
+   - `A` para apuntar el dominio a la IP del servidor.
+   - `CNAME` para subdominios como `www`.
+   - Otros registros según necesidades, como `MX`, `TXT` o `AAAA`.
+4. Configurar el servidor web, como Apache o Nginx, para responder a ese dominio.
+5. Añadir un certificado **SSL/TLS**.
+6. Esperar la propagación DNS.
+
+:::tip[Ejemplo práctico]
+Si una aplicación está en un servidor con IP `10.5.60.2`, se puede crear un registro `A` para que `midominio.com` apunte a esa IP. Después, el servidor web debe estar configurado para servir la aplicación cuando reciba peticiones para ese dominio.
+:::
+
+---
+
+## 8. Servicio LDAP
+
+**LDAP** (*Lightweight Directory Access Protocol*) es un protocolo usado para acceder, consultar y administrar servicios de directorio. Un directorio LDAP almacena información sobre usuarios, grupos, equipos y otros recursos de una red.
+
+En el despliegue de aplicaciones web, LDAP no sirve para publicar páginas ni desplegar código. Su función principal es centralizar la **autenticación** y la **autorización**.
+
+:::note[Idea clave]
+LDAP permite que varias aplicaciones usen el mismo sistema de usuarios, evitando duplicar cuentas y contraseñas en cada aplicación.
+:::
+
+---
+
+## 9. Modelos de LDAP
+
+LDAP se organiza mediante varios modelos conceptuales que explican cómo se almacena, nombra, consulta y protege la información.
+
+### 9.1 Modelo de información
+
+Define cómo se representa la información. La unidad básica es la **entrada**, que representa un objeto real, como una persona, grupo, equipo u organización.
+
+Cada entrada contiene atributos. Por ejemplo:
+
+```ldif
+dn: dc=ejemplo,dc=com
+objectClass: domain
+dc: ejemplo
+```
+
+- `dn`: identificador único de la entrada.
+- `objectClass`: tipo de objeto.
+- `dc`: componente del dominio.
+
+### 9.2 Modelo de referencia o nombres
+
+Organiza las entradas en un árbol jerárquico llamado **DIT** (*Directory Information Tree*).
+
+Cada entrada se identifica mediante un **DN** (*Distinguished Name*) formado por varios **RDN** (*Relative Distinguished Name*).
+
+Ejemplo:
+
+```txt
+cn=Juan Pérez,ou=Usuarios,dc=ejemplo,dc=com
+```
+
+Aquí:
+
+- `cn=Juan Pérez` identifica al usuario.
+- `ou=Usuarios` indica la unidad organizativa.
+- `dc=ejemplo,dc=com` representa el dominio base.
+
+### 9.3 Modelo funcional
+
+Describe las operaciones que los clientes pueden realizar sobre el servidor LDAP:
+
+- `Bind`: autenticarse.
+- `Search`: buscar entradas.
+- `Compare`: comparar valores.
+- `Add`: añadir entradas.
+- `Delete`: eliminar entradas.
+- `Modify`: modificar atributos.
+- `Modify DN`: cambiar el nombre o mover una entrada.
+- `Unbind`: cerrar la sesión.
+
+### 9.4 Modelo de seguridad
+
+Define cómo se protegen los datos del directorio:
+
+- **Autenticación** de usuarios.
+- **Cifrado** mediante TLS/SSL o LDAPS.
+- **ACLs**, para controlar quién puede leer, modificar o eliminar información.
+
+---
+
+## 10. Archivos LDIF
+
+Los archivos **LDIF** son archivos de texto plano usados para representar datos LDAP o cambios sobre el directorio. Se guardan con extensión `.ldif`.
+
+Una entrada LDIF suele tener esta estructura:
+
+```ldif
+dn: uid=fernando,ou=empleados,dc=prueba,dc=com
+objectClass: inetOrgPerson
+uid: fernando
+ou: empleados
+cn: Fernando
+sn: Vázquez
+mail: fvazquez@prueba.com
+```
+
+### Conceptos importantes
+
+- **DN**: nombre completo y único de una entrada dentro del directorio.
+- **RDN**: parte relativa del nombre dentro de su nivel.
+- **objectClass**: plantilla que indica qué tipo de objeto es la entrada y qué atributos puede o debe tener.
+- **DIT**: árbol jerárquico donde se organizan las entradas LDAP.
+
+:::caution[DN y RDN]
+El RDN solo identifica una entrada dentro de su nivel, mientras que el DN identifica la entrada de forma única dentro de todo el directorio.
+:::
+
+---
+
+## 11. LDAP en una aplicación web
+
+Una aplicación web puede usar LDAP para validar usuarios y permisos. El flujo habitual sería:
+
+1. El usuario introduce sus credenciales en la aplicación.
+2. La aplicación recibe usuario y contraseña.
+3. La aplicación consulta al servidor LDAP.
+4. LDAP confirma si el usuario existe y si las credenciales son correctas.
+5. LDAP puede devolver grupos, roles o permisos.
+6. La aplicación concede o deniega el acceso.
+7. La lógica propia de la aplicación puede seguir usando una base de datos como MySQL o PostgreSQL.
+
+LDAP aporta ventajas importantes:
+
+- Evita duplicar usuarios en cada aplicación.
+- Centraliza contraseñas, altas, bajas y permisos.
+- Facilita que varias aplicaciones usen el mismo sistema de autenticación.
+- Mejora la administración de usuarios en entornos grandes.
+
+:::note[Dominio en LDAP]
+En LDAP, un dominio como `dc=prueba,dc=com` no significa que el usuario tenga que entrar a `prueba.com` desde un navegador. Es una forma de organizar el árbol del directorio usando la misma lógica jerárquica que DNS.
+:::
+
+---
+
+## 12. Relación entre DNS, LDAP y el despliegue web
+
+DNS y LDAP cumplen funciones diferentes, pero ambos pueden formar parte del entorno de una aplicación web.
+
+| Servicio | Función en el despliegue |
+|---|---|
+| DNS | Permite que el dominio apunte al servidor correcto. |
+| Servidor web | Sirve la aplicación al navegador. |
+| SSL/TLS | Cifra la comunicación entre cliente y servidor. |
+| LDAP | Centraliza usuarios, autenticación, grupos y permisos. |
+| Base de datos | Guarda la información propia de la aplicación. |
+
+:::tip[Resumen final]
+DNS responde a la pregunta: “¿Dónde está la aplicación?”. LDAP responde a la pregunta: “¿Quién es el usuario y qué puede hacer?”.
+:::
+
+---
+
+## Ideas clave para el examen
+
+- DNS traduce nombres de dominio en direcciones IP.
+- DNS usa una estructura jerárquica basada en raíz, TLD, dominios y subdominios.
+- Una zona DNS es una parte administrable del espacio de nombres.
+- Los servidores DNS pueden ser primarios, secundarios, reenviadores o caché.
+- Las consultas DNS pueden ser recursivas o iterativas.
+- Los registros DNS más importantes son `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `TXT`, `PTR` y `SRV`.
+- Para desplegar una web se necesita configurar dominio, registros DNS, servidor web y certificado SSL/TLS.
+- LDAP centraliza usuarios, grupos, permisos y autenticación.
+- LDAP organiza la información en un árbol llamado DIT.
+- Los archivos LDIF permiten crear o modificar entradas LDAP.
+- En una aplicación web, LDAP se usa para autenticación y autorización, no para servir páginas web.
