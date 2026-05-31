@@ -15,20 +15,16 @@ export default defineConfig({
 					items: [
 						{
 							label: 'Unidad 2',
-							link: 'daw/unidad-2',
-							slug: 'daw/unidad-2',
-							items: [{
-								label: 'Resumen',
-								link: 'daw/unidad-2/resumen'
-							}],
-
+							items: [{autogenerate: {directory: 'daw/unidad-2'}}],
+							
 						},
+						
 					],
 				},
-				{
-					label: 'IPE II',
-					items: [],
-				},
+				// {
+				// 	label: 'IPE II',
+				// 	items: [],
+				// },
 			],
 		}),
 		mermaid({

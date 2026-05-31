@@ -1,6 +1,8 @@
 ---
 title: Unidad 2 - Resumen
 description: Resumen Servicios de red implicados en el despliegue de una aplicación web
+sidebar:
+   order: 2
 ---
 
 ## 1. Idea general de la unidad
