@@ -1,5 +1,5 @@
 ---
-title: PRÁCTICA 1. 
+title: PRÁCTICA 1
 description: Instalación y configuración de un servidor DNS
 sidebar:
    order: 3
