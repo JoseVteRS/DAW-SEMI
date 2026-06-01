@@ -1,0 +1,95 @@
+---
+title: Módulo 6 - Informática
+description: Informática
+sidebar:
+   order: 1
+---
+
+import Question from '../../../components/question.astro';
+
+## Pregunta 1
+
+<Question question="¿Por qué AWS es más económico que los centros de datos tradicionales para las aplicaciones con cargas de trabajo de cómputo variables? (Seleccione la mejor respuesta)." options={[
+    {label: 'Los costos de Amazon EC2 se facturan mensualmente.', value: '1', correct: false},
+    {label: 'Los clientes mantienen el acceso administrativo total a sus instancias de Amazon EC2.', value: '2', correct: false},
+    {label: 'Los clientes pueden ejecutar de forma permanente instancias suficientes como para manejar las cargas de trabajo máximas.', value: '3', correct: false},
+    {label: 'Las instancias de Amazon EC2 se pueden lanzar bajo demanda cuando sean necesarias.', value: '4', correct: true}
+]} />
+
+## Pregunta 2
+
+<Question question="Si su proyecto requiere la preparación mensual de informes que se repiten a través de cantidades de datos muy grandes, ¿qué opción de compra de Amazon Elastic Compute Cloud (Amazon EC2) debería tener en cuenta? (Seleccione la mejor respuesta)." options={[
+    {label: 'Instancias de spot', value: '1', correct: false},
+    {label: 'Instancias reservadas programadas', value: '2', correct: true},
+    {label: 'Hosts dedicados', value: '3', correct: false},
+    {label: 'Instancias bajo demanda', value: '4', correct: false}
+]} />
+
+## Pregunta 3
+
+<Question question="¿Qué se incluye en una imagen de Amazon Machine (AMI)? (Seleccione la mejor respuesta)." options={[
+    {label: 'Una plantilla para el volumen raíz de la instancia', value: '1', correct: false},
+    {label: 'Permisos de lanzamiento que controlen qué cuentas de AWS pueden usar la AMI para lanzar instancias', value: '2', correct: false},
+    {label: 'Una asignación de dispositivos de bloques que especifique los volúmenes que deben asociarse a la instancia en su lanzamiento', value: '3', correct: false},
+    {label: 'Todas las opciones anteriores', value: '4', correct: true}
+]} />
+
+## Pregunta 4
+
+<Question question="¿Qué característica de Amazon Elastic Compute Cloud (Amazon EC2) le garantiza que sus instancias no compartirán un host físico con las instancias de cualquier otro cliente de AWS? (Seleccione la mejor respuesta)." options={[
+    {label: 'Amazon VPC', value: '1', correct: false},
+    {label: 'Grupos de ubicación', value: '2', correct: false},
+    {label: 'Instancias dedicadas', value: '3', correct: true},
+    {label: 'Instancias reservadas', value: '4', correct: false}
+]} />
+
+## Pregunta 5
+
+<Question question="¿Cuál de estos servicios es un servicio informático sin servidor en AWS? (Seleccione la mejor respuesta)." options={[
+    {label: 'AWS Config', value: '1', correct: false},
+    {label: 'AWS Lambda', value: '2', correct: true},
+    {label: 'AWS OpsWorks', value: '3', correct: false},
+    {label: 'Amazon EC2', value: '4', correct: false}
+]} />
+
+## Pregunta 6
+
+<Question question="¿Qué servicio de AWS permite a los desarrolladores implementar y administrar fácilmente aplicaciones en la nube? (Seleccione la mejor respuesta)." options={[
+    {label: 'Amazon Elastic Container Service', value: '1', correct: false},
+    {label: 'AWS Elastic Beanstalk', value: '2', correct: true},
+    {label: 'AWS OpsWorks', value: '3', correct: false},
+    {label: 'AWS CloudFormation', value: '4', correct: false}
+]} />
+
+## Pregunta 7
+
+<Question question="Las aplicaciones web necesitan cuatro instancias para poder admitir el tráfico constante todo el tiempo. El último día del mes, el tráfico se triplica. ¿Cuál es la forma más rentable de manejar este patrón? (Seleccione la mejor respuesta)." options={[
+    {label: 'Ejecutar 12 instancias reservadas constantemente.', value: '1', correct: false},
+    {label: 'Ejecutar de modo constante cuatro instancias bajo demanda, luego agregar ocho instancias bajo demanda el último día de cada mes.', value: '2', correct: false},
+    {label: 'Ejecutar de modo constante cuatro instancias reservadas y, luego, agregar ocho instancias bajo demanda el último día de cada mes.', value: '3', correct: true},
+    {label: 'Ejecutar de modo constante cuatro instancias bajo demanda y, luego, agregar ocho instancias reservadas el último día de cada mes.', value: '4', correct: false}
+]} />
+
+## Pregunta 8
+
+<Question question="¿Verdadero o falso? Los contenedores cuentan con un sistema operativo completo." options={[
+    {label: 'Verdadero', value: '1', correct: false},
+    {label: 'Falso', value: '2', correct: true}
+]} />
+
+## Pregunta 9
+
+<Question question="¿Qué opción de Amazon EC2 es la más adecuada para las cargas de trabajo a largo plazo con patrones de uso predecibles? (Seleccione la mejor respuesta)." options={[
+    {label: 'Instancias de spot', value: '1', correct: false},
+    {label: 'Instancias bajo demanda', value: '2', correct: false},
+    {label: 'Instancias reservadas', value: '3', correct: true}
+]} />
+
+## Pregunta 10
+
+<Question question="¿Cuáles de estos datos se deben especificar al momento de lanzar una nueva instancia de Windows de Amazon Elastic Compute Cloud (Amazon EC2)? (Elija dos)." options={[
+    {label: 'Tipo de instancia de Amazon EC2', value: '1', correct: true},
+    {label: 'ID de la instancia de Amazon EC2', value: '2', correct: false},
+    {label: 'Contraseña de la cuenta del administrador', value: '3', correct: false},
+    {label: 'Imagen de Amazon Machine (AMI)', value: '4', correct: true}
+]} />

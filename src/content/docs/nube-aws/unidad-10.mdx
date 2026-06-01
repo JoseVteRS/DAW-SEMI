@@ -1,0 +1,105 @@
+---
+title: Módulo 10 - Monitorio y escalado automático
+description: Informática
+sidebar:
+   order: 5
+---
+
+import Question from '../../../components/question.astro';
+
+## Pregunta 1
+
+<Question question="¿Cuáles de estas herramientas de AWS ayudan a su aplicación con la escalabilidad ascendente o descendente según la demanda? (Elija dos)." options={[
+    {label: 'Zonas de disponibilidad', value: '1', correct: false},
+    {label: 'Amazon EC2 Auto Scaling', value: '2', correct: true},
+    {label: 'AWS CloudFormation', value: '3', correct: false},
+    {label: 'Elastic Load Balancing', value: '4', correct: true},
+    {label: 'AWS Config', value: '5', correct: false}
+]} />
+
+## Pregunta 2
+
+<Question question="¿Qué servicio utilizaría para enviar alertas basadas en las alarmas de Amazon CloudWatch? (Seleccione la mejor respuesta)." options={[
+    {label: 'Amazon Simple Notification Service (Amazon SNS)', value: '1', correct: true},
+    {label: 'AWS CloudTrail', value: '2', correct: false},
+    {label: 'AWS Trusted Advisor', value: '3', correct: false},
+    {label: 'Amazon Route 53', value: '4', correct: false}
+]} />
+
+## Pregunta 3
+
+<Question question="¿Cuáles de estas características corresponden a Amazon EC2 Auto Scaling? (Elija tres)." options={[
+    {label: 'Solo admite el escalado dinámico', value: '1', correct: false},
+    {label: 'Responde a condiciones cambiantes agregando o terminando instancias', value: '2', correct: true},
+    {label: 'Entrega notificaciones push', value: '3', correct: false},
+    {label: 'Lanza instancias a partir de una imagen de Amazon Machine (AMI) específica', value: '4', correct: true},
+    {label: 'Obliga a ejecutar una cantidad mínima de instancias de Amazon EC2', value: '5', correct: true}
+]} />
+
+## Pregunta 4
+
+<Question question="¿Cuál de estos elementos debe configurarse en un balanceador de carga de Elastic Load Balancing para aceptar el tráfico entrante? (Seleccione la mejor respuesta)." options={[
+    {label: 'Un puerto', value: '1', correct: false},
+    {label: 'Una interfaz de red', value: '2', correct: false},
+    {label: 'Un agente de escucha', value: '3', correct: true},
+    {label: 'Una instancia', value: '4', correct: false}
+]} />
+
+## Pregunta 5
+
+<Question question="¿Cuáles de estos elementos se utilizan para crear una configuración de lanzamiento de Amazon EC2 Auto Scaling? (Elija tres)." options={[
+    {label: 'Imagen de Amazon Machine (AMI)', value: '1', correct: true},
+    {label: 'Balanceador de carga', value: '2', correct: false},
+    {label: 'Tipo de instancia', value: '3', correct: true},
+    {label: 'Nube virtual privada (VPC) y subredes', value: '4', correct: false},
+    {label: 'Volúmenes de Amazon Elastic Block Store (Amazon EBS)', value: '5', correct: true}
+]} />
+
+## Pregunta 6
+
+<Question question="¿Cuál de estos servicios puede ayudarlo a recopilar métricas importantes sobre las instancias de Amazon Relational Database Service (Amazon RDS) y Amazon Elastic Compute Cloud (Amazon EC2)? (Seleccione la mejor respuesta)." options={[
+    {label: 'Amazon CloudFront', value: '1', correct: false},
+    {label: 'Amazon CloudSearch', value: '2', correct: false},
+    {label: 'Amazon CloudWatch', value: '3', correct: true},
+    {label: 'AWS CloudTrail', value: '4', correct: false},
+    {label: 'Amazon EC2 Auto Scaling', value: '5', correct: false}
+]} />
+
+## Pregunta 7
+
+<Question question="¿Cuáles de estos elementos corresponden a un grupo de Auto Scaling? (Elija tres)." options={[
+    {label: 'Tamaño mínimo', value: '1', correct: true},
+    {label: 'Comprobaciones de estado', value: '2', correct: false},
+    {label: 'Capacidad deseada', value: '3', correct: true},
+    {label: 'Tamaño máximo', value: '4', correct: true}
+]} />
+
+## Pregunta 8
+
+<Question question="Hay una auditoría en su empresa, y necesita un registro de todo el acceso a los recursos de AWS en la cuenta. ¿Cuál de estos servicios puede ayudarlo a proporcionar esta información? (Seleccione la mejor respuesta)." options={[
+    {label: 'Amazon CloudWatch', value: '1', correct: false},
+    {label: 'AWS CloudTrail', value: '2', correct: true},
+    {label: 'Amazon Elastic Compute Cloud (Amazon EC2)', value: '3', correct: false},
+    {label: 'Amazon Simple Notification Service (Amazon SNS)', value: '4', correct: false}
+]} />
+
+## Pregunta 9
+
+<Question question="En Elastic Load Balancing, cuando el balanceador de carga detecta un destino en mal estado, ¿cuáles de estas medidas se cumplen? (Elija tres)." options={[
+    {label: 'Deja de dirigir el tráfico hacia ese destino', value: '1', correct: true},
+    {label: 'Activa una alarma', value: '2', correct: false},
+    {label: 'Reanuda el direccionamiento del tráfico cuando detecta que el destino está en buen estado nuevamente', value: '3', correct: true},
+    {label: 'Reanuda el direccionamiento del tráfico cuando se reinicia de forma manual', value: '4', correct: false},
+    {label: 'Dirige el tráfico a un destino en buen estado', value: '5', correct: true}
+]} />
+
+## Pregunta 10
+
+<Question question="¿Cuáles son los tres tipos de balanceadores de carga que ofrece Elastic Load Balancing?" options={[
+    {label: 'Balanceador de carga de Internet', value: '1', correct: false},
+    {label: 'Balanceador de carga de aplicaciones', value: '2', correct: true},
+    {label: 'Balanceador de carga de red', value: '3', correct: true},
+    {label: 'Balanceador de carga informático', value: '4', correct: false},
+    {label: 'Balanceador de carga clásico', value: '5', correct: true},
+    {label: 'Balanceador de carga de Auto Scaling', value: '6', correct: false}
+]} />

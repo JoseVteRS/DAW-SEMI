@@ -1,0 +1,96 @@
+---
+title: Módulo 8 - Base de datos
+description: Informática
+sidebar:
+   order: 3
+---
+
+import Question from '../../../components/question.astro';
+
+## Pregunta 1
+
+<Question question="Está diseñando una aplicación web de comercio electrónico que escalará a cientos de miles de usuarios simultáneos. ¿Qué tecnología de base de datos es la más adecuada para mantener el estado de la sesión en este ejemplo?" options={[
+    {label: 'Amazon Relational Database Service (Amazon RDS)', value: '1', correct: false},
+    {label: 'Amazon DynamoDB', value: '2', correct: true},
+    {label: 'Amazon Redshift', value: '3', correct: false},
+    {label: 'Amazon Simple Storage Service (Amazon S3)', value: '4', correct: false}
+]} />
+
+## Pregunta 2
+
+<Question question="Para buscar un elemento en una tabla de Amazon DynamoDB utilice un atributo distinto de la clave principal del elemento. ¿Cuál de estas operaciones debería utilizar? (Seleccione la mejor respuesta)." options={[
+    {label: 'PutItem', value: '1', correct: false},
+    {label: 'Scan', value: '2', correct: true},
+    {label: 'Query', value: '3', correct: false},
+    {label: 'GetItem', value: '4', correct: false}
+]} />
+
+## Pregunta 3
+
+<Question question="En Amazon DynamoDB, ¿qué le permite realizar la operación de consulta? (Seleccione la mejor respuesta)." options={[
+    {label: 'Consultar una tabla con la clave de partición y un filtro opcional de clave de ordenamiento', value: '1', correct: false},
+    {label: 'Consultar cualquier índice secundario que exista para una tabla', value: '2', correct: false},
+    {label: 'Recuperar de manera eficaz los elementos de una tabla o de un índice secundario', value: '3', correct: false},
+    {label: 'Todas las opciones anteriores', value: '4', correct: true}
+]} />
+
+## Pregunta 4
+
+<Question question="¿Qué servicio en la nube de AWS es el más adecuado para analizar sus datos con el lenguaje de consulta estructurado (SQL) estándar y las herramientas de inteligencia empresarial existentes? (Seleccione la mejor respuesta)." options={[
+    {label: 'Amazon Relational Database Service (Amazon RDS)', value: '1', correct: false},
+    {label: 'Amazon Simple Storage Service Glacier', value: '2', correct: false},
+    {label: 'Amazon DynamoDB', value: '3', correct: false},
+    {label: 'Amazon Redshift', value: '4', correct: true}
+]} />
+
+## Pregunta 5
+
+<Question question="En Amazon DynamoDB, un atributo es _____. (Seleccione la mejor respuesta)." options={[
+    {label: 'un elemento de datos fundamental', value: '1', correct: true},
+    {label: 'un conjunto de elementos', value: '2', correct: false},
+    {label: 'un conjunto de atributos', value: '3', correct: false}
+]} />
+
+## Pregunta 6
+
+<Question question="Si está desarrollando una aplicación que requiere una base de datos con rendimiento extremadamente rápido, escalabilidad veloz y flexibilidad en el esquema de la base de datos, ¿qué servicio debería tener en cuenta? (Seleccione la mejor respuesta)." options={[
+    {label: 'Amazon Relational Database Service (Amazon RDS)', value: '1', correct: false},
+    {label: 'Amazon ElastiCache', value: '2', correct: false},
+    {label: 'Amazon DynamoDB', value: '3', correct: true},
+    {label: 'Amazon Redshift', value: '4', correct: false}
+]} />
+
+## Pregunta 7
+
+<Question question="¿Cuál de estos casos de uso es adecuado para utilizar Amazon Relational Database Service (Amazon RDS)? (Seleccione la mejor respuesta)." options={[
+    {label: 'Tasas de lectura o escritura masivas', value: '1', correct: false},
+    {label: 'Solicitudes GET o PUT sencillas', value: '2', correct: false},
+    {label: 'Transacciones complejas', value: '3', correct: true},
+    {label: 'Todas las opciones anteriores', value: '4', correct: false}
+]} />
+
+## Pregunta 8
+
+<Question question="Una empresa tiene una aplicación, la cual consiste en una capa .NET que se conecta a una base de datos MySQL. Quiere migrar esta aplicación a AWS para aprovechar sus características, como la alta disponibilidad y las copias de seguridad automatizadas. ¿Cuál de estas opciones sería la base de datos ideal para este caso de uso? (Seleccione la mejor respuesta)." options={[
+    {label: 'Amazon DynamoDB', value: '1', correct: false},
+    {label: 'Amazon RDS', value: '2', correct: false},
+    {label: 'Amazon Aurora', value: '3', correct: true},
+    {label: 'Amazon Redshift', value: '4', correct: false}
+]} />
+
+## Pregunta 9
+
+<Question question="¿Verdadero o falso? Amazon RDS implementa parches en el software de la base de datos y realiza copias de seguridad de esta de manera automática, lo que implica el almacenamiento de las copias de seguridad durante un periodo de retención definido por el usuario y la habilitación de la recuperación a un momento dado." options={[
+    {label: 'Verdadero', value: '1', correct: true},
+    {label: 'Falso', value: '2', correct: false}
+]} />
+
+## Pregunta 10
+
+<Question question="¿Qué debe tener en cuenta a la hora de elegir un tipo de base de datos? (Seleccione la mejor respuesta)." options={[
+    {label: 'Volumen de datos', value: '1', correct: false},
+    {label: 'Período de acceso a los datos', value: '2', correct: false},
+    {label: 'Frecuencia de las consultas', value: '3', correct: false},
+    {label: 'Con alta disponibilidad', value: '4', correct: false},
+    {label: 'Todas las opciones anteriores', value: '5', correct: true}
+]} />

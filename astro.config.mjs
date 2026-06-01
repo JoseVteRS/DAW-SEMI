@@ -23,6 +23,10 @@ export default defineConfig({
 						},	
 					],
 				},
+				{
+					label: 'NUBE AWS',
+					items: [{autogenerate: {directory: 'nube-aws'}}]
+				},
 				// {
 				// 	label: 'DIW',
 				// 	items: [
