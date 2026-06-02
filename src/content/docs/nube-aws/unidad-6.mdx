@@ -16,6 +16,10 @@ import Question from '../../../components/question.astro';
     {label: 'Las instancias de Amazon EC2 se pueden lanzar bajo demanda cuando sean necesarias.', value: '4', correct: true}
 ]} />
 
+:::note[Nota]
+AWS es más económico que los centros de datos tradicionales para las aplicaciones con cargas de trabajo de cómputo variables porque las instancias de Amazon EC2 se pueden lanzar bajo demanda.
+:::
+
 ## Pregunta 2
 
 <Question question="Si su proyecto requiere la preparación mensual de informes que se repiten a través de cantidades de datos muy grandes, ¿qué opción de compra de Amazon Elastic Compute Cloud (Amazon EC2) debería tener en cuenta? (Seleccione la mejor respuesta)." options={[
@@ -24,6 +28,10 @@ import Question from '../../../components/question.astro';
     {label: 'Hosts dedicados', value: '3', correct: false},
     {label: 'Instancias bajo demanda', value: '4', correct: false}
 ]} />
+
+:::note[Nota]
+Si su proyecto requiere la ejecución mensual de informes que se repiten a través de cantidades de datos muy grandes, debería considerar comprar instancias reservadas programadas.
+:::
 
 ## Pregunta 3
 
@@ -34,6 +42,10 @@ import Question from '../../../components/question.astro';
     {label: 'Todas las opciones anteriores', value: '4', correct: true}
 ]} />
 
+:::note[Nota]
+Una imagen de Amazon Machine (AMI) incluye todos estos elementos
+:::
+
 ## Pregunta 4
 
 <Question question="¿Qué característica de Amazon Elastic Compute Cloud (Amazon EC2) le garantiza que sus instancias no compartirán un host físico con las instancias de cualquier otro cliente de AWS? (Seleccione la mejor respuesta)." options={[
@@ -42,6 +54,10 @@ import Question from '../../../components/question.astro';
     {label: 'Instancias dedicadas', value: '3', correct: true},
     {label: 'Instancias reservadas', value: '4', correct: false}
 ]} />
+
+:::note[Nota]
+Las instancias dedicadas garantizan que sus instancias no compartirán un alojamiento físico con las instancias de ningún otro cliente de AWS
+:::
 
 ## Pregunta 5
 
@@ -52,6 +68,10 @@ import Question from '../../../components/question.astro';
     {label: 'Amazon EC2', value: '4', correct: false}
 ]} />
 
+:::note[Nota]
+AWS Lambda es un servicio informático que le permite ejecutar código sin necesidad de aprovisionar ni administrar servidores.
+:::
+
 ## Pregunta 6
 
 <Question question="¿Qué servicio de AWS permite a los desarrolladores implementar y administrar fácilmente aplicaciones en la nube? (Seleccione la mejor respuesta)." options={[
@@ -60,6 +80,10 @@ import Question from '../../../components/question.astro';
     {label: 'AWS OpsWorks', value: '3', correct: false},
     {label: 'AWS CloudFormation', value: '4', correct: false}
 ]} />
+
+:::note[Nota]
+Elastic Beanstalk es un opción de servicio informático de AWS. Se trata de una plataforma como servicio (PaaS) que facilita la implementación, el escalado y la administración con rapidez de las aplicaciones y los servicios web.
+:::
 
 ## Pregunta 7
 
@@ -70,12 +94,20 @@ import Question from '../../../components/question.astro';
     {label: 'Ejecutar de modo constante cuatro instancias bajo demanda y, luego, agregar ocho instancias reservadas el último día de cada mes.', value: '4', correct: false}
 ]} />
 
+:::note[Nota]
+Las instancias reservadas permiten ahorrar costos cuando es posible comprometerse a ejecutar instancias a tiempo completo, como para gestionar el tráfico básico. Las instancias bajo demanda ofrecen la flexibilidad necesaria para gestionar los picos de tráfico.
+:::
+
 ## Pregunta 8
 
 <Question question="¿Verdadero o falso? Los contenedores cuentan con un sistema operativo completo." options={[
     {label: 'Verdadero', value: '1', correct: false},
     {label: 'Falso', value: '2', correct: true}
 ]} />
+
+:::note[Nota]
+Los contenedores son más pequeños que las máquinas virtuales y no contienen un sistema operativo completo.
+:::
 
 ## Pregunta 9
 
@@ -85,6 +117,10 @@ import Question from '../../../components/question.astro';
     {label: 'Instancias reservadas', value: '3', correct: true}
 ]} />
 
+:::note[Nota]
+Las instancias reservadas serian la opción más adecuada de EC2 para las cargas de trabajo a largo plazo con patrones de uso predecible.
+:::
+
 ## Pregunta 10
 
 <Question question="¿Cuáles de estos datos se deben especificar al momento de lanzar una nueva instancia de Windows de Amazon Elastic Compute Cloud (Amazon EC2)? (Elija dos)." options={[
@@ -93,3 +129,7 @@ import Question from '../../../components/question.astro';
     {label: 'Contraseña de la cuenta del administrador', value: '3', correct: false},
     {label: 'Imagen de Amazon Machine (AMI)', value: '4', correct: true}
 ]} />
+
+:::note[Nota]
+AWS asigna el ID de instancia EC2 como parte del proceso de lanzamiento y la contraseña de administrador, que se cifra a través de la clave pública. El tipo de instancia define el hardware virtual, y la AMI define el estado inicial del software. Ambos deben especificarse en el momento del lanzamiento.
+:::

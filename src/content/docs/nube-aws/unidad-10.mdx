@@ -9,13 +9,19 @@ import Question from '../../../components/question.astro';
 
 ## Pregunta 1
 
-<Question question="¿Cuáles de estas herramientas de AWS ayudan a su aplicación con la escalabilidad ascendente o descendente según la demanda? (Elija dos)." options={[
+<Question 
+question="¿Cuáles de estas herramientas de AWS ayudan a su aplicación con la escalabilidad ascendente o descendente según la demanda? (Elija dos)." 
+options={[
     {label: 'Zonas de disponibilidad', value: '1', correct: false},
     {label: 'Amazon EC2 Auto Scaling', value: '2', correct: true},
     {label: 'AWS CloudFormation', value: '3', correct: false},
     {label: 'Elastic Load Balancing', value: '4', correct: true},
     {label: 'AWS Config', value: '5', correct: false}
 ]} />
+
+:::note[Nota]
+Amazon EC2 Auto Scaling y Elastic Load Balancing ayudan con la disponibilidad ascendente o descendente según la demanda.
+:::
 
 ## Pregunta 2
 
@@ -25,6 +31,10 @@ import Question from '../../../components/question.astro';
     {label: 'AWS Trusted Advisor', value: '3', correct: false},
     {label: 'Amazon Route 53', value: '4', correct: false}
 ]} />
+
+:::note[Nota]
+Amazon SNS es el servicio que debería usar para enviar alerta basadas en las alarmas de Amazon CloudWatch.
+:::
 
 ## Pregunta 3
 
@@ -36,6 +46,10 @@ import Question from '../../../components/question.astro';
     {label: 'Obliga a ejecutar una cantidad mínima de instancias de Amazon EC2', value: '5', correct: true}
 ]} />
 
+:::note[Nota]
+Amazon EC2 Auto Scalling responde a las condiciones cambianetes agregando o terminando instancias, lanza instancias a partir de una AMI y obliga a ejecutar una cantidad mínima de instancias de Amazon EC2.
+:::
+
 ## Pregunta 4
 
 <Question question="¿Cuál de estos elementos debe configurarse en un balanceador de carga de Elastic Load Balancing para aceptar el tráfico entrante? (Seleccione la mejor respuesta)." options={[
@@ -44,6 +58,10 @@ import Question from '../../../components/question.astro';
     {label: 'Un agente de escucha', value: '3', correct: true},
     {label: 'Una instancia', value: '4', correct: false}
 ]} />
+
+:::note[Nota]
+Se configura el balanceador de carga para aceptar el tráfico entrante mediante la especificación de uno o más agentes de escucha.
+:::
 
 ## Pregunta 5
 
@@ -55,6 +73,10 @@ import Question from '../../../components/question.astro';
     {label: 'Volúmenes de Amazon Elastic Block Store (Amazon EBS)', value: '5', correct: true}
 ]} />
 
+:::note[Nota]
+Cuando se crea una configuración de lanzamiento de Auto Scaling, se debe especificar la AMI, el tipo de instancia y los volúmenes de EBS. 
+:::
+
 ## Pregunta 6
 
 <Question question="¿Cuál de estos servicios puede ayudarlo a recopilar métricas importantes sobre las instancias de Amazon Relational Database Service (Amazon RDS) y Amazon Elastic Compute Cloud (Amazon EC2)? (Seleccione la mejor respuesta)." options={[
@@ -65,6 +87,10 @@ import Question from '../../../components/question.astro';
     {label: 'Amazon EC2 Auto Scaling', value: '5', correct: false}
 ]} />
 
+:::note[Nota]
+Amazon CloudWatch es un servicio de monitorio de los recursos en la nube de AWS y de las aplicaciones que se ejecuten en AWS.
+:::
+
 ## Pregunta 7
 
 <Question question="¿Cuáles de estos elementos corresponden a un grupo de Auto Scaling? (Elija tres)." options={[
@@ -74,6 +100,10 @@ import Question from '../../../components/question.astro';
     {label: 'Tamaño máximo', value: '4', correct: true}
 ]} />
 
+:::note[Nota]
+Puede especificar la cantidad mínima y máxima de instancias en cada grupo de Auto Scaling, así como la capacidad deseada.
+:::
+
 ## Pregunta 8
 
 <Question question="Hay una auditoría en su empresa, y necesita un registro de todo el acceso a los recursos de AWS en la cuenta. ¿Cuál de estos servicios puede ayudarlo a proporcionar esta información? (Seleccione la mejor respuesta)." options={[
@@ -82,6 +112,10 @@ import Question from '../../../components/question.astro';
     {label: 'Amazon Elastic Compute Cloud (Amazon EC2)', value: '3', correct: false},
     {label: 'Amazon Simple Notification Service (Amazon SNS)', value: '4', correct: false}
 ]} />
+
+:::note[Nota]
+AWS CloudTrail es un servicio que le permite efectuar la gobernanza y conformidad, además de autidorías sobre las operaciones y auditorías sobre los riesgos en su cuenta de AWS.
+:::
 
 ## Pregunta 9
 
@@ -93,6 +127,10 @@ import Question from '../../../components/question.astro';
     {label: 'Dirige el tráfico a un destino en buen estado', value: '5', correct: true}
 ]} />
 
+:::note[Nota]
+Cuando el balanceador de carga detecta un destino en mal estado, deja de dirigir el trafico hacia dicho destino y lo envía a un destino en buen estado. Luego, cuando detecta que está nuevamente en buen estado, reanuda el tráfico hacia ese destino.
+:::
+
 ## Pregunta 10
 
 <Question question="¿Cuáles son los tres tipos de balanceadores de carga que ofrece Elastic Load Balancing?" options={[
@@ -103,3 +141,24 @@ import Question from '../../../components/question.astro';
     {label: 'Balanceador de carga clásico', value: '5', correct: true},
     {label: 'Balanceador de carga de Auto Scaling', value: '6', correct: false}
 ]} />
+
+:::note[Nota]
+ELB ofrece tres tipos de balanceadores de carga:
+- Los balanceadores de carga de aplicaciones.
+- Los balanceadores de carga de red.
+- Los balanceadores de carga clásicos.
+:::
+
+## Pregunta EXTRA
+
+<Question 
+question="¿Qué servicio usaría para enviar alertas basadas en alarmas de Amazon CloudWatch?" options={[
+    {label: 'Amazon Simple Notification Service', value: '1', correct: true},
+    {label: 'AWS CloudTrail', value: '2', correct: false},
+    {label: 'AWS Trusted Advisor', value: '3', correct: false},
+    {label: 'Amazon Route 53', value: '4', correct: false}
+]} />
+
+:::note[Nota]
+Las palabras clave en la pregunta son "enviar alertas" y "alarmas de Amazon CloudWatch"
+:::

@@ -12,9 +12,13 @@ import Question from '../../../components/question.astro';
 <Question question="¿Cuál de las siguientes opciones no es una de las cuatro áreas del pilar de eficiencia del rendimiento en el Well-Architected Framework de AWS? (Seleccione la mejor respuesta)" options={[
     {label: 'Compensaciones', value: '1', correct: false},
     {label: 'Selección', value: '2', correct: false},
-    {label: 'Trazabilidad', value: '3', correct: false},
-    {label: 'Supervisión', value: '4', correct: true}
+    {label: 'Trazabilidad', value: '3', correct: true},
+    {label: 'Supervisión', value: '4', correct: false}
 ]} />
+
+:::note[Nota]
+La revisión es una de las cuatro áreas del pilar de eficiencia del rendimiento en el Well-Architected Framework de AWS. (Selección, Revisión, Supervisión, Compensanciones)
+:::
 
 ## Pregunta 2
 
@@ -25,6 +29,10 @@ import Question from '../../../components/question.astro';
     {label: 'Utilice tantos servicios como sea posible', value: '4', correct: false}
 ]} />
 
+:::note[Nota]
+Asuma que todo fallará.
+:::
+
 ## Pregunta 3
 
 <Question question="¿Cuál de los siguientes son los pilares del marco de AWS Well-Architected? (Elija tres)." options={[
@@ -33,6 +41,17 @@ import Question from '../../../components/question.astro';
     {label: 'Excelencia operativa', value: '3', correct: true},
     {label: 'Optimización de costos', value: '4', correct: true}
 ]} />
+
+:::note[Nota]
+La excelencia operativa, la seguridad y la optimización de costos son los pilares del marco AWS Well-Architected.
+
+- Excelencia operativa.
+- Seguridad.
+- Fiabilidad.
+- Eficiencia del rendimiento.
+- Optimización de costos.
+- Sustentabilidad.
+:::
 
 ## Pregunta 4
 
@@ -44,6 +63,18 @@ import Question from '../../../components/question.astro';
     {label: 'Analizar y atribuir los gastos', value: '5', correct: false}
 ]} />
 
+:::note[Nota]
+A la hora de considerar la eficiencia del rendimiento, los principios de diseño recomendados son la arquitectura sin servidores y la democratización de las tecnologías avanzadas.
+
+**Principios de diseño para la eficiencia del rendimiento**
+
+- Democratizar las tecnologías avanzadas.
+- Convertirse en una empresa global en minutos.
+- Utilizar modelos de arquitectura sin servidor.
+- Experimentar más a menudo.
+- Considerar la compatibilidad mecánica.
+:::
+
 ## Pregunta 5
 
 <Question question="¿Cuáles son las cinco categorías de una cuenta de AWS que proporciona AWS Trusted Advisor? (Seleccione la mejor respuesta)" options={[
@@ -52,6 +83,10 @@ import Question from '../../../components/question.astro';
     {label: 'Seguridad, tolerancia a errores, alta disponibilidad, conectividad, límites de servicio', value: '3', correct: false},
     {label: 'Rendimiento, optimización de costos, control de acceso, conectividad, seguridad', value: '4', correct: false}
 ]} />
+
+:::note[Nota]
+La cinco categorías son rendimiento, optimización de costos, tolerancia a errores y límite de servicio.
+:::
 
 ## Pregunta 6
 
@@ -62,6 +97,10 @@ import Question from '../../../components/question.astro';
     {label: 'Automatización de las actualizaciones de las cargas de trabajo en la nube', value: '4', correct: false}
 ]} />
 
+:::note[Nota]
+Los temas clave del pilar de sustentabilidad incluyen el modelo de responsabilidad compartida para la sustentabilidad, comprender el impacto, y maximizar el uso para minimizar los recursos necesarios y reducir el impacto en sectores posteriores.
+:::
+
 ## Pregunta 7
 
 <Question question="Después de trasladarse a la nube de AWS, querrá asegurarse de que se establecen las configuraciones de seguridad adecuadas. ¿Qué herramienta en línea puede ayudar a cumplir las normas de seguridad? (Seleccione la mejor respuesta)" options={[
@@ -70,6 +109,10 @@ import Question from '../../../components/question.astro';
     {label: 'AWS Trusted Advisor', value: '3', correct: true},
     {label: 'Amazon CloudWatch', value: '4', correct: false}
 ]} />
+
+:::note[Nota]
+AWS Trusted Advisor es un recurso en línea que le ayudará a reducri costos, aumentar el rendimiento y mejorar la seguridad al optimizar su entorno de AWS.
+:::
 
 ## Pregunta 8
 
@@ -80,6 +123,10 @@ import Question from '../../../components/question.astro';
     {label: 'Eficiencia del rendimiento', value: '4', correct: false}
 ]} />
 
+:::note[Nota]
+La fiabilidad es una medida de la capacidad del sistema para proporcionar funcionalidad cuando el usuario lo desea.
+:::
+
 ## Pregunta 9
 
 <Question question="¿De qué manera se define la capacidad de un sistema para funcionar incluso si algunos de sus componentes presentan errores? (Seleccione la mejor respuesta)" options={[
@@ -89,6 +136,10 @@ import Question from '../../../components/question.astro';
     {label: 'Alta durabilidad', value: '4', correct: false}
 ]} />
 
+:::note[Nota]
+La tolerancia a errores es la capacidad de un sistema para funcionar, incluso si algunos de sus componentes presenta errores.
+:::
+
 ## Pregunta 10
 
 <Question question="¿Cuál de las siguientes describe mejor un sistema que puede soportar algunas medidas de degradación, experimenta un tiempo de inactividad mínimo y requiere una intervención humana mínima? (Seleccione la mejor respuesta)" options={[
@@ -97,3 +148,20 @@ import Question from '../../../components/question.astro';
     {label: 'Elástico', value: '3', correct: false},
     {label: 'Entornos', value: '4', correct: true}
 ]} />
+
+:::note[Nota]
+Un sistema con alta disponibilidad puede utilizarse siempre sin necesidad de intervención humana.
+:::
+
+## Pregunta EXTRA
+
+<Question question="Un ingeniero de SysOps que trabaja en una empresa quiere proteger sus datos en tránsito y en reposo. ¿Qué servicios podría utilizar para proteger sus datos?" options={[
+    {label: 'Elastic Load Balancing', value: '1', correct: false},
+    {label: 'Amazon Elastic Block Storage (Amazon EBS)', value: '2', correct: false},
+    {label: 'Amazon Simple Storage Service (Amazon S3)', value: '3', correct: false},
+    {label: 'Todas las opciones anteriores', value: '4', correct: true}
+]} />
+
+:::note[Nota]
+Las palabras clave en la pregunta son "proteger sus datos en tránsito y en reposo"
+:::

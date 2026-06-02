@@ -14,6 +14,10 @@ import Question from '../../../components/question.astro';
     {label: 'Falso', value: '2', correct: false}
 ]} />
 
+:::note[Nota]
+Es verdadero que S3 es un almacenamiento de objetos adecuado para guardar archivos sin formato, como documentos Microsoft Word, fotos y otros.
+:::
+
 ## Pregunta 2
 
 <Question question="Amazon S3 replica todos los objetos________. (Seleccione la mejor respuesta)" options={[
@@ -22,6 +26,10 @@ import Question from '../../../components/question.astro';
     {label: 'en varias regiones para obtener mayor durabilidad', value: '3', correct: false},
     {label: 'en varios buckets de S3', value: '4', correct: false}
 ]} />
+
+:::note[Nota]
+S3 replica todos los objetos en varias zonas de disponibilidad dentro de la misma región.
+:::
 
 ## Pregunta 3
 
@@ -34,6 +42,10 @@ import Question from '../../../components/question.astro';
     {label: 'Amazon Dynamo DB', value: '6', correct: false}
 ]} />
 
+:::note[Nota]
+Glacier, S3 de acceso poco frecuente y S3 de acceso estándar pueden utilizarse como clase de almacenamiento para una política de ciclo de vida de objetos de S3.
+:::
+
 ## Pregunta 4
 
 <Question question="El nombre de un bucket de S3 debe ser único________. (Seleccione la mejor respuesta)" options={[
@@ -42,6 +54,10 @@ import Question from '../../../components/question.astro';
     {label: 'en todas sus cuentas de AWS', value: '3', correct: false},
     {label: 'en su cuenta de AWS', value: '4', correct: false}
 ]} />
+
+:::note[Nota]
+El nombre de un bucket de S3 debe ser único en todo el mundo, en todas las cuentas de AWS.
+:::
 
 ## Pregunta 5
 
@@ -52,6 +68,10 @@ import Question from '../../../components/question.astro';
     {label: 'generan contenido específico del usuario', value: '4', correct: false}
 ]} />
 
+:::note[Nota]
+Puede implementar almacenamiento para instancias de EC2 a las que puedan acceder varias máquinas virtuales al mismo tiempo.
+:::
+
 ## Pregunta 6
 
 <Question question="Se recomienda Amazon Elastic Block Store (Amazon EBS) cuando los datos________y________. (Seleccione dos opciones)." options={[
@@ -61,12 +81,20 @@ import Question from '../../../components/question.astro';
     {label: 'deben almacenarse en una zona de disponibilidad diferente a la de la instancia de EC2', value: '4', correct: false}
 ]} />
 
+:::note[Nota]
+Se recomienda Amazon EBS cuando los datos requieren una solución de cifrado, deben ser de rápido acceso, perdurar a largo plazo y exigen una solución de cifrado.
+:::
+
 ## Pregunta 7
 
 <Question question="¿Verdadero o falso? De forma predeterminada, todos los datos almacenados en Amazon S3 son visibles de manera pública." options={[
     {label: 'Verdadero', value: '1', correct: false},
     {label: 'Falso', value: '2', correct: true}
 ]} />
+
+:::note[Nota]
+De forma predeterminada, todos los datos almacenados en S3 no son visibles de manera pública.
+:::
 
 ## Pregunta 8
 
@@ -77,12 +105,20 @@ import Question from '../../../components/question.astro';
     {label: 'Una política con la que se identifica quién tiene acceso al contenido almacenado en Glacier', value: '4', correct: false}
 ]} />
 
+:::note[Nota]
+El almacén de Amazon Glacier es un contenedor para almacenar archivos.
+:::
+
 ## Pregunta 9
 
 <Question question="¿Verdadero o falso? Cuando se crea un bucket en Amazon S3, se asocia con una región de AWS específica." options={[
     {label: 'Verdadero', value: '1', correct: true},
     {label: 'Falso', value: '2', correct: false}
 ]} />
+
+:::note[Nota]
+Cuando se crea un bucket en Amazon S3, se asocia con una región de AWS específica.
+:::
 
 ## Pregunta 10
 
@@ -92,3 +128,7 @@ import Question from '../../../components/question.astro';
     {label: 'Los datos de Amazon EBS están automáticamente respaldados en cinta.', value: '3', correct: false},
     {label: 'Los datos de un volumen de Amazon EBS se pierden cuando se detiene la instancia adjunta.', value: '4', correct: false}
 ]} />
+
+:::note[Nota]
+Los volúmenes de Amazon EBS perduran cuando una instancia se detiene. Los datos se replican de manera automática dentro de una zona de disponibilidad, se pueden cifrar cuando se crean y se pueden utilizar en una instancia como si no estuvieran cifrados.
+:::

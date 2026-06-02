@@ -16,6 +16,10 @@ import Question from '../../../components/question.astro';
     {label: 'Amazon Simple Storage Service (Amazon S3)', value: '4', correct: false}
 ]} />
 
+:::note[Nota]
+Las bases de datos NoSQL, como Amazon DynamoDB, se destacan por su escalado a cientos de miles de solicitudes con acceso de clave-valor al perfil y a la sesión del usuario.
+:::
+
 ## Pregunta 2
 
 <Question question="Para buscar un elemento en una tabla de Amazon DynamoDB utilice un atributo distinto de la clave principal del elemento. ¿Cuál de estas operaciones debería utilizar? (Seleccione la mejor respuesta)." options={[
@@ -24,6 +28,10 @@ import Question from '../../../components/question.astro';
     {label: 'Query', value: '3', correct: false},
     {label: 'GetItem', value: '4', correct: false}
 ]} />
+
+:::note[Nota]
+Para buscar un elemento en una tabla de DynamoDB diferente a la clave principal del elemento, debería utilizar la operación de escaneo.
+:::
 
 ## Pregunta 3
 
@@ -34,6 +42,10 @@ import Question from '../../../components/question.astro';
     {label: 'Todas las opciones anteriores', value: '4', correct: true}
 ]} />
 
+:::note[Nota]
+En Amazon DynamoDB, la operación de consulta le permite llevar a cabo todas estas acciones.
+:::
+
 ## Pregunta 4
 
 <Question question="¿Qué servicio en la nube de AWS es el más adecuado para analizar sus datos con el lenguaje de consulta estructurado (SQL) estándar y las herramientas de inteligencia empresarial existentes? (Seleccione la mejor respuesta)." options={[
@@ -43,6 +55,10 @@ import Question from '../../../components/question.astro';
     {label: 'Amazon Redshift', value: '4', correct: true}
 ]} />
 
+:::note[Nota]
+Amazon Redshift es la solución más adecuada para el análisis de datos.
+:::
+
 ## Pregunta 5
 
 <Question question="En Amazon DynamoDB, un atributo es _____. (Seleccione la mejor respuesta)." options={[
@@ -50,6 +66,10 @@ import Question from '../../../components/question.astro';
     {label: 'un conjunto de elementos', value: '2', correct: false},
     {label: 'un conjunto de atributos', value: '3', correct: false}
 ]} />
+
+:::note[Nota]
+En Amazon DynamoDB, un atributo es un elemento de datos fundamental.
+:::
 
 ## Pregunta 6
 
@@ -60,6 +80,10 @@ import Question from '../../../components/question.astro';
     {label: 'Amazon Redshift', value: '4', correct: false}
 ]} />
 
+:::note[Nota]
+Si estás desarrollando una aplicación que requiere una base de datos con rendimiento extremadamente rápido, escabilidad veloz y flexibilidad en el esquema de la base de datos, considera la posibilidad de recurrir a Amazon DynamoDB.
+:::
+
 ## Pregunta 7
 
 <Question question="¿Cuál de estos casos de uso es adecuado para utilizar Amazon Relational Database Service (Amazon RDS)? (Seleccione la mejor respuesta)." options={[
@@ -68,6 +92,10 @@ import Question from '../../../components/question.astro';
     {label: 'Transacciones complejas', value: '3', correct: true},
     {label: 'Todas las opciones anteriores', value: '4', correct: false}
 ]} />
+
+:::note[Nota]
+Utilice Amazon RDS (Relational Database Service) cuando su aplicación requiera transacciones o consultas complejas.
+:::
 
 ## Pregunta 8
 
@@ -78,12 +106,20 @@ import Question from '../../../components/question.astro';
     {label: 'Amazon Redshift', value: '4', correct: false}
 ]} />
 
+:::note[Nota]
+Amazon Aurora es una base de datos relacional compatible con MySQL y PostgreSQL que sería ideal para este caso de uno.
+:::
+
 ## Pregunta 9
 
 <Question question="¿Verdadero o falso? Amazon RDS implementa parches en el software de la base de datos y realiza copias de seguridad de esta de manera automática, lo que implica el almacenamiento de las copias de seguridad durante un periodo de retención definido por el usuario y la habilitación de la recuperación a un momento dado." options={[
     {label: 'Verdadero', value: '1', correct: true},
     {label: 'Falso', value: '2', correct: false}
 ]} />
+
+:::note[Nota]
+Amazon RDS implementa parches en el software de la base de datos y realiza copias de seguridad de esta de manera automática.
+:::
 
 ## Pregunta 10
 
@@ -94,3 +130,7 @@ import Question from '../../../components/question.astro';
     {label: 'Con alta disponibilidad', value: '4', correct: false},
     {label: 'Todas las opciones anteriores', value: '5', correct: true}
 ]} />
+
+:::note[Nota]
+Al momento de elegir un tipo de base de datos, debe considerar todas estas variables.
+:::
