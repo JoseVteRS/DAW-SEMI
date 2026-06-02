@@ -19,13 +19,13 @@ export default defineConfig({
 						// },	
 						{
 							label: 'Unidad 2',
-							items: [{autogenerate: {directory: 'daw/unidad-2'}}],
-						},	
+							items: [{ autogenerate: { directory: 'daw/unidad-2' } }],
+						},
 					],
 				},
 				{
 					label: 'NUBE AWS',
-					items: [{autogenerate: {directory: 'nube-aws'}}]
+					items: [{ autogenerate: { directory: 'nube-aws' } }]
 				},
 				// {
 				// 	label: 'DIW',
@@ -54,15 +54,10 @@ export default defineConfig({
 				// 		},
 				// 	],
 				// },
-				// {
-				// 	label: 'IPE II',
-				// 	items: [
-				// 		{
-				// 			label: 'Unidad 4',
-				// 			items: [{autogenerate: {directory: 'ipe-2/unidad-04'}}],
-				// 		},
-				// 	],
-				// },
+				{
+					label: 'IPE II',
+					items: [{ autogenerate: { directory: 'ipe-2' } }],
+				}
 			],
 		}),
 		mermaid({
